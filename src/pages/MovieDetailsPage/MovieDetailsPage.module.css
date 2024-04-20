@@ -1,0 +1,31 @@
+.button {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 5px;
+    background-color: white;
+    padding: 0px 5px 0px 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.containerBox{
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid rgb(169, 169, 169);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.descriptionBox {
+        margin-left: 20px;
+    }
+
+.overviewTitle {
+    font-weight: bold;
+}
+
+.info{
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+}
+

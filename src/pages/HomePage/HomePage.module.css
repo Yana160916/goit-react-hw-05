@@ -1,0 +1,14 @@
+.Link {
+    color: rgb(98, 0, 255);
+    text-decoration: none;
+}
+
+.Link:hover,
+.Link:active,
+.Link:focus {
+    color: red;
+}
+
+.boxHome{
+    margin-top: 80px;
+}
