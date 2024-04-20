@@ -3,9 +3,9 @@ import HomePage from '../pages/HomePage/HomePage.jsx';
 import MoviesPage from '../pages/MoviesPage/MoviesPage.jsx';
 import MovieDetailsPage from '../pages/MovieDetailsPage/MovieDetailsPage.jsx';
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage.jsx';
-import Navigation from '../pages/components/Navigation/NavLink.jsx';
-import MovieCast from '../pages/components/MovieCast/MovieCast.jsx'; 
-import MovieReviews from '../pages/components/MovieReviews/MovieReviews.jsx'; 
+import Navigation from '../components/Navigation/NavLink.jsx';
+import MovieCast from '../components/MovieCast/MovieCast.jsx'; 
+import MovieReviews from '../components/MovieReviews/MovieReviews.jsx'; 
 
 const App = () => {
   return (
