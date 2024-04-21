@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getTrendingMovies } from "../api.js";
-import styles from '../HomePage/HomePage.module.css'
+import styles from './HomePage.module.css';
+import MovieList from '../../components/MovieList/MovieList.jsx'; 
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -17,13 +18,8 @@ const HomePage = () => {
   return (
     <div className={styles.boxHome}>
       <h1>Trending today</h1>
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`} className={styles.Link}>{movie.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <Link to="/movies" className={styles.link}></Link> 
+      <MovieList movies={movies} /> 
     </div>
   );
 };

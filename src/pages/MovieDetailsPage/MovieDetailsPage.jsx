@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { Link, useParams, Outlet, useNavigate } from "react-router-dom"; 
+import { Link, useParams, Outlet, useNavigate, useLocation } from "react-router-dom"; 
 import styles from '../MovieDetailsPage/MovieDetailsPage.module.css'
 
 const apiKey = "e6a549f1ef2b4d5e610b11e0d550dd0d"; 
@@ -10,6 +10,12 @@ const MovieDetailsPage = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
   const navigate = useNavigate(); 
+  const location = useLocation(); 
+  const prevLocation = useRef(); 
+
+  useEffect(() => {
+    prevLocation.current = location; 
+  }, [location]);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
