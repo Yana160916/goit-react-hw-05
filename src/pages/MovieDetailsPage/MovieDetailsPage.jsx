@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { Link, useParams, Outlet, useNavigate, useLocation } from "react-router-dom"; 
+import { useParams, Link, Outlet, useNavigate, useLocation } from "react-router-dom"; 
 import styles from '../MovieDetailsPage/MovieDetailsPage.module.css'
 
 const apiKey = "e6a549f1ef2b4d5e610b11e0d550dd0d"; 
@@ -11,11 +11,7 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const navigate = useNavigate(); 
   const location = useLocation(); 
-  const prevLocation = useRef(); 
-
-  useEffect(() => {
-    prevLocation.current = location; 
-  }, [location]);
+  const prevLocation = useRef(location.state); 
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -32,20 +28,29 @@ const MovieDetailsPage = () => {
     };
 
     fetchMovieDetails();
-
     
   }, [movieId]);
 
+  
+  useEffect(() => {
+    prevLocation.current = location.state;
+  }, [location.state]);
+
+  const handleGoBack = () => {
+    
+    navigate(prevLocation.current?.from ?? "/");
+  };
+
   if (!movieDetails) {
-    return <div className={styles.loading} >Loading...</div>;
+    return <div className={styles.loading}>Loading...</div>;
   }
 
   return (
     <div>
-      <button className={styles.button} onClick={() => navigate(-1)}>
+      <button className={styles.button} onClick={handleGoBack}>
         &larr; Go back
       </button>
-      <div className={styles.containerBox}>
+       <div className={styles.containerBox}>
       <div>
         <img src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`} alt={movieDetails.title} />
       </div>

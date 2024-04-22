@@ -9,15 +9,10 @@ const MovieList = ({ movies }) => {
       {movies.map(movie => (
         <div key={movie.id}>
           <h2>
-            <Link 
-              to={{
-                pathname: `/movies/${movie.id}`,
-                state: { from: location },
-              }} 
-              className={styles.movieTitle}
-            >
-              {movie.title}
+            <Link
+              to={`/movies/${movie.id}`} state={location} className={styles.movieTitle}>{movie.title}
             </Link>
+
           </h2>
         </div>
       ))}
